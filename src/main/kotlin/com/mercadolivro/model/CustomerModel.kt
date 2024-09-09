@@ -1,8 +1,22 @@
 package com.mercadolivro.model
 
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
 
+@Entity(name = "customer")  // Nome da tabela
 data class CustomerModel(
-    var id: String? = null,
+
+    @Id  // Cria o id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Faz com que o id seja auto_increment
+    var id: Int? = null,
+
+    // @Column(name = "name")  // Isso é necessario caso o nome deste atributo seja diferente do nome que eu quero por na colune
+    @Column
     var name: String,
+
+    @Column()
     var email: String
 )
